@@ -9,6 +9,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 .container {
   height: 26rem;
@@ -19,6 +22,7 @@ body {
   background-color: #e0e1e5;
   box-shadow: 0 10px 10px rgb(255, 255, 255, 0.5);
   z-index: 0;
+  overflow: hidden;
 }
 .glass-bg {
   position: absolute;
@@ -44,4 +48,30 @@ body {
 .form-handler {
   display: flex;
   justify-content: space-around;
+}
+.form-input > input {
+  width: 30rem;
+  padding: 15px 20px;
+  border-radius: 1rem;
+  border: 1px solid rgb(255, 255, 255, 0.7);
+  margin: 25px 5px 25px 15px;
+  box-shadow: 0 0px 10px rgb(255, 255, 255, 0.5);
+  color: black;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+}
+.form-submit-btn > input {
+  width: 6.5rem;
+  padding: 15px 20px;
+  border-radius: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: rgb(198, 21, 151, 0.8);
+  background-color: rgb(255, 255, 255, 0.8);
+
+  background-size: 400% 400%;
+  border: none;
+  margin: 25px 20px 25px 5px;
+  box-shadow: 0 0px 10px rgb(255, 255, 255, 0.5);
 }
