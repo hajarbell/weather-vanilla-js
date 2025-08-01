@@ -23,11 +23,11 @@ function updateWeather(response) {
 
   console.log(weatherDetails);
   firstHeading.innerHTML = response.city;
-  dateUpdated.innerHTML = `${formattedDate},`;
+  dateUpdated.innerHTML = `${formattedDate} – `;
   weatherDetails.innerHTML = weatherCondition;
-  humidity.innerHTML = `Humidity: <strong>${humidityApi}%</strong> ,`;
-  wind.innerHTML = ` ${windApi}km/h`;
-  tempNow.innerHTML = `${currentTemp} <div class="current-temp-metric">°C</div>`;
+  humidity.innerHTML = `Humidity: <strong>${humidityApi}%</strong> | `;
+  wind.innerHTML = ` ${windApi}km/h `;
+  tempNow.innerHTML = `${currentTemp} <div class="current-temp-metric"></div>`;
   icon.innerHTML = `  <img class="current-temp-icon" src="${iconApi}">`;
 }
 
