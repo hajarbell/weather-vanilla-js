@@ -1,3 +1,47 @@
-h1 {
-  color: blueviolet;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  height: 26rem;
+  width: 40rem;
+  border: 1px solid #000;
+  position: relative;
+  border-radius: 20px;
+  background-color: #e0e1e5;
+  box-shadow: 0 10px 10px rgb(255, 255, 255, 0.5);
+  z-index: 0;
+}
+.glass-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: radial-gradient(
+      circle at 40% 50%,
+      rgb(198, 21, 150, 0.8) 10%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 60% 50%,
+      rgb(233, 87, 44, 0.8) 10%,
+      transparent 40%
+    );
+  filter: blur(30px);
+}
+.container-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+.form-handler {
+  display: flex;
+  justify-content: space-around;
 }
