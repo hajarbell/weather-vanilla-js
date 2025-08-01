@@ -2,20 +2,35 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: 1px solid rgba(255, 0, 0, 0.2);
+}
+html,
+body {
+  overflow-x: hidden;
 }
 body {
   height: 100vh;
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-style: normal;
 }
+footer {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 40px;
+}
+.wrapper {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
 .container {
   height: 26rem;
-  width: 40rem;
+  width: 90vw;
+  max-width: 40rem;
   border: 1px solid #000;
   position: relative;
   border-radius: 20px;
@@ -38,7 +53,7 @@ body {
       rgb(233, 87, 44, 0.8) 10%,
       transparent 40%
     );
-  filter: blur(30px);
+  filter: blur(40px);
 }
 .container-content {
   position: absolute;
@@ -50,6 +65,8 @@ body {
   justify-content: space-around;
 }
 .form-input > input {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
   width: 30rem;
   padding: 15px 20px;
   border-radius: 1rem;
@@ -57,15 +74,13 @@ body {
   margin: 25px 5px 25px 15px;
   box-shadow: 0 0px 10px rgb(255, 255, 255, 0.5);
   color: black;
-  font-family: "Poppins", sans-serif;
-  font-size: 15px;
 }
 .form-submit-btn > input {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
   width: 6.5rem;
   padding: 15px 20px;
   border-radius: 1rem;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
   font-size: 15px;
   color: rgb(198, 21, 151, 0.8);
   background-color: rgb(255, 255, 255, 0.8);
@@ -74,4 +89,74 @@ body {
   border: none;
   margin: 25px 20px 25px 5px;
   box-shadow: 0 0px 10px rgb(255, 255, 255, 0.5);
+}
+.form-submit-btn > input:hover {
+  background-image: radial-gradient(
+    circle at center,
+    rgb(198, 21, 150, 0.8) 0%
+  );
+  background-size: 300% 300%;
+  cursor: pointer;
+  color: #fff;
+}
+.toggle {
+  color: #212121;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(234, 232, 237, 0.3);
+  width: 15rem;
+  margin-left: 12rem;
+  padding: 5px;
+
+  border-radius: 16px;
+}
+.toggle > h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+}
+.toggle > h3.active-btn {
+  background-color: #fff;
+  width: fit-content;
+  padding: 5px 25px;
+  border-radius: 16px;
+}
+.toggle > h3.nonactive-btn {
+  width: fit-content;
+  padding: 5px 25px;
+  border-radius: 16px;
+}
+.current-city-info {
+  display: flex;
+  justify-content: space-between;
+  margin: 35px 30px 0px 30px;
+}
+
+div.current-temp {
+  display: flex;
+}
+
+div.current-temp-digit {
+  font-size: 88px;
+  font-weight: 800;
+  line-height: 120px;
+}
+div.current-temp-icon {
+  font-size: 3rem;
+  margin: 22px 5px 0px 0px;
+}
+div.current-temp-metric {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 13px;
+}
+.city-name-with-description > h1 {
+  margin-top: 18px;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.city-name-with-description p {
+  margin: 0;
+  width: fit-content;
 }
