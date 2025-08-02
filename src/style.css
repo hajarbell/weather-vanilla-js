@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline: 1px solid rgb(105, 29, 29);
 }
 html,
 body {
@@ -111,16 +110,45 @@ footer {
   font-size: 16px;
 }
 .toggle > h3.active-btn {
-  background-color: #fff;
+  background-color: rgb(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 10px rgb(255, 255, 255, 0.3);
   width: fit-content;
   padding: 5px 25px;
   border-radius: 16px;
+  transition: hover 1s;
 }
 .toggle > h3.nonactive-btn {
   width: fit-content;
   padding: 5px 25px;
   border-radius: 16px;
+  background-color: rgb(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgb(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 10px rgb(255, 255, 255, 0.3);
+  transition: hover 1s;
 }
+
+.toggle > h3.active-btn:hover,
+.toggle > h3.nonactive-btn:hover {
+  cursor: pointer;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.4);
+  -webkit-text-fill-color: transparent;
+}
+
+.active {
+  background-color: #fff;
+  backdrop-filter: blur(10px);
+}
+.transparent {
+  background-color: rgb(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgb(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 10px rgb(255, 255, 255, 0.3);
+}
+
 .current-city-info {
   display: flex;
   justify-content: space-between;

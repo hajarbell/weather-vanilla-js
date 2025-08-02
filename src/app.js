@@ -1,3 +1,16 @@
+const todayBtn = document.getElementById("today-btn");
+const weekBtn = document.querySelector("#week-btn");
+todayBtn.addEventListener("click", (event) => {
+  let content = document.querySelector("#content-dsiplayed");
+  content.style.display = "flex";
+});
+console.log(weekBtn);
+weekBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  let content = document.querySelector("#content-dsiplayed");
+  content.style.display = "none";
+});
+
 function updateWeather(response) {
   let city = document.getElementById("user-city-input");
   let time = response.time;
@@ -10,7 +23,6 @@ function updateWeather(response) {
   let iconApi = response.condition.icon_url;
   console.log(iconApi);
   console.log(weatherCondition);
-
   console.log(formattedDate);
   console.log(date);
   let firstHeading = document.querySelector("h1");
