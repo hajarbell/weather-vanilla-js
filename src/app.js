@@ -25,13 +25,17 @@ function updateWeather(response) {
   firstHeading.innerHTML = response.city;
   dateUpdated.innerHTML = `${formattedDate} – `;
   weatherDetails.innerHTML = weatherCondition;
-  humidity.innerHTML = `Humidity: <strong>${humidityApi}%</strong> | `;
+  humidity.innerHTML = `Humidity: <strong>${humidityApi}%</strong> |`;
   wind.innerHTML = ` ${windApi}km/h `;
   tempNow.innerHTML = `${currentTemp} <div class="current-temp-metric"></div>`;
   icon.innerHTML = `  <img class="current-temp-icon" src="${iconApi}">`;
 }
-
+let devMoode = true;
 async function apiHandler(city) {
+  if (devMoode) {
+    console.log(`I need to work on the CSS, stop calls for ${city}`);
+    return;
+  }
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   try {
     const response = await fetch(apiUrl);
