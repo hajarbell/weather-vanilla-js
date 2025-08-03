@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline: 1px solid rgb(143, 30, 30);
+  //tline: 1px solid rgb(106, 20, 20);
 }
 html,
 body {
@@ -150,67 +150,80 @@ footer {
   box-shadow: inset 0 0 10px rgb(255, 255, 255, 0.3);
 }
 
-.current-city-info {
+div.current-city-info {
   display: flex;
   justify-content: space-between;
-  margin: 25px 35px 0px 35px;
+  margin: 50px 35px 0px 35px;
 }
-
+div.city-name-with-description {
+  margin-top: 10px;
+}
 div.current-temp {
   display: flex;
+  margin-top: 10px;
 }
 
 div.current-temp-digit {
-  font-size: 92px;
+  font-size: 102px;
   font-weight: 800;
-  line-height: 120px;
+  line-height: 140px;
 }
 div.current-temp-icon {
   width: 90px;
-  margin-top: 8px;
+  margin-top: 20px;
   margin-bottom: 15px;
-  padding: 0;
+  margin-right: 10px;
 }
 div.current-temp-metric {
-  font-size: 23px;
+  font-size: 28px;
   font-weight: 500;
-  margin-top: 12px;
+  line-height: 84px;
+  margin-top: 0px;
 }
 .city-name-with-description > h1 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   padding: 0;
 }
 
 .city-name-with-description p {
-  margin-bottom: 20px;
-  line-height: 10px;
+  margin-bottom: 10px;
+  line-height: 20px;
   width: fit-content;
 }
 .forecast-section {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 10px;
+  margin-top: 25px;
 }
 .forecast-first {
   display: flex;
   flex-direction: column;
-  margin-top: 15px;
+  margin-top: 12px;
 }
 .forecast-day {
-  font-size: 17px;
+  font-size: 1rem;
   font-weight: 500;
   text-align: center;
 }
 .description,
 .forecast-min-max {
   text-align: center;
+  font-size: 1rem;
 }
 .description {
   padding-bottom: 6px;
+  font-size: 14px;
+
+  overflow: hidden;
 }
+
 .forecast-icon {
   font-size: 30px;
   padding: 0;
   margin: 0;
   height: 96px;
+}
+span.bullet-divider {
+  font-size: 15px;
+  opacity: 0.8;
 }
