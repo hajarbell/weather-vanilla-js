@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline: 1px solid rgb(143, 30, 30);
 }
 html,
 body {
@@ -16,7 +17,7 @@ body {
 footer {
   font-size: 12px;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 .wrapper {
   background-color: #fff;
@@ -133,7 +134,7 @@ footer {
 .toggle > h3.active-btn:hover,
 .toggle > h3.nonactive-btn:hover {
   cursor: pointer;
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.4);
+  -webkit-text-stroke: 0.4px rgba(0, 0, 0, 0.4);
   -webkit-text-fill-color: transparent;
 }
 
@@ -184,4 +185,32 @@ div.current-temp-metric {
   margin-bottom: 20px;
   line-height: 10px;
   width: fit-content;
+}
+.forecast-section {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+.forecast-first {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+.forecast-day {
+  font-size: 17px;
+  font-weight: 500;
+  text-align: center;
+}
+.description,
+.forecast-min-max {
+  text-align: center;
+}
+.description {
+  padding-bottom: 6px;
+}
+.forecast-icon {
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+  height: 96px;
 }
