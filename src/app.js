@@ -10,8 +10,31 @@ todayBtn.addEventListener("click", (event) => {
 function updateForecast(data) {
   let forecastSection = document.getElementById("forecast-section");
   let content = document.querySelector("#content-displayed");
+  let forecastBlock = document.querySelectorAll(".forecast-first");
+  let block = Array.from(forecastBlock);
+  console.log(block);
   content.style.display = "none";
   forecastSection.style.display = "flex";
+  let forecastDaily = data.daily;
+  console.log(data.daily);
+  block.forEach((element, i) => {
+    let forecast = forecastDaily[i];
+    console.log(forecast);
+    let time = new Date(forecast.time * 1000);
+    let formattedTime = moment(time).format("dddd");
+    console.log(formattedTime);
+    element.querySelector(".forecast-day").innerHTML = formattedTime;
+    console.log(time);
+    element.querySelector(".icon").src = forecast.condition.icon_url;
+    element.querySelector(".description").innerHTML =
+      forecast.condition.description;
+    element.querySelector(".forecast-max").innerHTML = Math.round(
+      forecast.temperature.maximum
+    );
+    element.querySelector(".forecast-min").innerHTML = Math.round(
+      forecast.temperature.minimum
+    );
+  });
 }
 
 const weekBtn = document.querySelector("#week-btn");
@@ -23,9 +46,10 @@ function forecastApi(city) {
   try {
     fetch(forecastApiUrl).then((response) => {
       let forecastResponse = response.json().then((data) => {
-        weekBtn.addEventListener("click", (e, data) => {
+        weekBtn.addEventListener("click", (e) => {
           e.preventDefault();
           updateForecast(data);
+          console.log("here's the:" + data);
         });
       });
     });
@@ -59,9 +83,9 @@ function updateWeather(response) {
 
   console.log(weatherDetails);
   firstHeading.innerHTML = city;
-  dateUpdated.innerHTML = `${formattedDate} – `;
+  dateUpdated.innerHTML = `${formattedDate} `;
   weatherDetails.innerHTML = weatherCondition;
-  humidity.innerHTML = `Humidity: <strong>${humidityApi}%</strong> |`;
+  humidity.innerHTML = ` ${humidityApi}%`;
   wind.innerHTML = ` ${windApi}km/h `;
   tempNow.innerHTML = `${currentTemp} <div class="current-temp-metric"></div>`;
   icon.innerHTML = `  <img class="current-temp-icon" src="${iconApi}">`;
