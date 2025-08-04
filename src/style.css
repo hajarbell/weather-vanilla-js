@@ -12,18 +12,28 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-style: normal;
+  outline: 2px solid black;
 }
 .env footer {
-  transform: translateY(-150px);
-  font-size: 12px;
+  position: absolute;
+  bottom: 115px;
   text-align: center;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 12px;
+
   line-height: 40px;
 }
 .env {
-  height: 100vh;
-  overflow: hidden;
-  background-color: #fff;
+  overflow-y: hidden;
   transition: all 1s;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  outline: 2px solid darkred;
 }
 
 .wrapper {
@@ -31,8 +41,9 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
+  outline: 2px solid rgb(232, 236, 27);
 }
 .container {
   height: 26rem;
@@ -45,6 +56,7 @@ body {
   box-shadow: 0 5px 10px rgb(255, 255, 255, 0.5);
   z-index: 0;
   overflow: hidden;
+  transition: all 0.8s;
 }
 .glass-bg {
   position: absolute;
@@ -148,24 +160,17 @@ body {
   font-size: 16px;
 }
 .toggle > h3.active-btn {
-  background-color: rgb(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
   box-shadow: inset 0 0 10px rgb(255, 255, 255, 0.3);
   width: fit-content;
   padding: 5px 25px;
   border-radius: 16px;
-  transition: hover 1s;
+  transition: all 0.8s;
 }
 .toggle > h3.nonactive-btn {
   width: fit-content;
   padding: 5px 25px;
   border-radius: 16px;
-  background-color: rgb(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgb(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 10px rgb(255, 255, 255, 0.3);
-  transition: hover 1s;
+  transition: all 0.8s;
 }
 
 .toggle > h3.active-btn:hover,
@@ -175,7 +180,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 .toggle > h3.active {
-  background-color: #fff;
+  background-color: rgb(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
 }
 .toggle > h3.transparent {
@@ -213,7 +218,7 @@ div.current-temp-icon {
 }
 div.current-temp-metric {
   font-size: 28px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 84px;
   margin-top: 0px;
 }
@@ -264,33 +269,75 @@ span.bullet-divider {
   font-size: 15px;
   opacity: 0.8;
 }
-.strong {
-  font-weight: bolder;
-}
 
 div.display-btns {
   position: absolute;
   right: 0px;
   left: 50%;
   top: 50%;
-  rotate: 270deg;
+  transform: translateY(-15px) translateX(-20px) rotate(270deg);
+
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 .bg-changer {
   display: flex;
   gap: 15px;
 }
-.bg-changer button {
+button {
   cursor: pointer;
-  padding: 15px 20px;
   border-radius: 1rem;
-  border: 1px solid rgb(0, 0, 0, 0.3);
-  color: rgb(198, 21, 151, 0.8);
   font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  box-shadow: inset 10px 10px 10px rgb(255, 255, 255, 0.7);
+  border: 1px solid rgb(0, 0, 0, 0.3);
+  box-shadow: 0 5px 10px rgb(255, 255, 255, 0.5);
 }
+
+button.change-bg {
+  font-weight: 400;
+  padding: 15px 20px;
+
+  color: rgb(198, 21, 150, 0.8);
+  font-size: 14px;
+}
+button.clicked {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px inset;
+  background-color: (255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+button.icon {
+  max-width: 30px;
+  padding: 0;
+  font-size: 10px;
+  transition: opacity 0.8s ease;
+}
+
 .dark-mode {
   background-color: black;
+}
+.dark-mode footer {
+  color: #fff;
+}
+.dark-mode .material-symbols-outlined.sun-icon {
+  opacity: 0;
+}
+.dark-mode .material-symbols-outlined.moon-icon {
+  opacity: 1;
+  transform: translate(0, 1.5px);
+  font-size: 20px;
+  color: black;
+}
+.material-symbols-outlined.sun-icon {
+  color: rgb(198, 21, 150, 0.8);
+
+  transform: translate(0, 7px);
+
+  opacity: 1;
+}
+.material-symbols-outlined.sun-icon,
+.material-symbols-outlined.moon-icon {
+  transition: transform 1s ease;
+}
+.material-symbols-outlined.moon-icon {
+  opacity: 0;
 }

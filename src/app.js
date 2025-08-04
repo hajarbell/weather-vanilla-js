@@ -2,9 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const darkbg = document.getElementById("light-dark");
   console.log(darkbg);
   darkbg.addEventListener("click", () => {
-    let bg = document.querySelector(".wrapper");
+    let bg = document.querySelector(".env");
     console.log(bg);
     bg.classList.toggle("dark-mode");
+    darkbg.classList.toggle("clicked");
   });
   const gradientBG = document.getElementById("gradient-bg");
   console.log(gradientBG);
@@ -33,6 +34,15 @@ todayBtn.addEventListener("click", (event) => {
   let forecastSection = document.getElementById("forecast-section");
   content.style.display = "flex";
   forecastSection.style.display = "none";
+  if (todayBtn.classList.contains("active")) {
+    todayBtn.classList.remove("active");
+    todayBtn.classList.add("transparent");
+  } else {
+    weekBtn.classList.remove("active");
+    weekBtn.classList.add("transparent");
+    todayBtn.classList.remove("transparent");
+    todayBtn.classList.add("active");
+  }
 });
 
 function updateForecast(data) {
@@ -77,6 +87,15 @@ function forecastApi(city) {
       let forecastResponse = response.json().then((data) => {
         weekBtn.addEventListener("click", (e) => {
           e.preventDefault();
+          if (weekBtn.classList.contains("transparent")) {
+            weekBtn.classList.remove("transparent");
+            weekBtn.classList.add("active");
+            todayBtn.classList.remove("active");
+            todayBtn.classList.add("transparent");
+          } else {
+            weekBtn.classList.remove("active");
+            weekBtn.classList.add("transparent");
+          }
 
           updateForecast(data);
           console.log("here's the:" + data);
