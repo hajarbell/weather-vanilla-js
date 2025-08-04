@@ -50,7 +50,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 1;
-  transition: all 1s;
+  transition: all 0.6s linear;
 }
 
 .default-gradient {
@@ -78,7 +78,7 @@ body {
     );
   filter: blur(60px);
 }
-.gradient-default {
+.gradient-2 {
   background-image: radial-gradient(
     circle at 40% 60%,
     rgb(110, 135, 166) 0%,
@@ -293,5 +293,4 @@ div.display-btns {
 }
 .dark-mode {
   background-color: black;
-  color: #fff;
 }

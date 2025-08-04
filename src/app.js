@@ -2,26 +2,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const darkbg = document.getElementById("light-dark");
   console.log(darkbg);
   darkbg.addEventListener("click", () => {
-    let bg = document.querySelector(".env");
+    let bg = document.querySelector(".wrapper");
     console.log(bg);
     bg.classList.toggle("dark-mode");
   });
-});
-document.addEventListener("DOMContentLoaded", () => {
   const gradientBG = document.getElementById("gradient-bg");
   console.log(gradientBG);
-  gradientBG.addEventListener("click", () => {
-    let gradient = document.querySelector(".glass-bg");
-    console.log(gradient);
-    if (gradient.classList.contains("default-gradient")) {
-      gradient.classList.remove("default-gradient");
-      gradient.classList.add("gradient-1");
-    } else {
-      gradient.classList.remove("gradient-1");
-      gradient.classList.add("default-gradient");
-    }
-  });
+  gradientBG.addEventListener("click", updateGradient);
 });
+
+let currentIndex = 0;
+function updateGradient() {
+  let gradient = document.querySelector(".glass-bg");
+  gradient.style.opacity = "0";
+  console.log(gradient);
+
+  setTimeout(() => {
+    let gradientBgs = ["default-gradient", "gradient-1", "gradient-2"];
+    gradient.classList.remove(gradientBgs[currentIndex]);
+    currentIndex = (currentIndex + 1) % gradientBgs.length;
+    gradient.classList.add(gradientBgs[currentIndex]);
+    gradient.style.opacity = "1";
+  }, 600);
+}
 
 const todayBtn = document.getElementById("today-btn");
 todayBtn.addEventListener("click", (event) => {
@@ -112,8 +115,9 @@ function updateWeather(response) {
   firstHeading.innerHTML = city;
   dateUpdated.innerHTML = `${formattedDate} `;
   weatherDetails.innerHTML = weatherCondition;
-  humidity.innerHTML = ` ${humidityApi}%`;
-  wind.innerHTML = ` ${windApi}km/h `;
+  humidity.innerHTML = ` Humidity: <strong id="wind-info"> 
+                ${humidityApi}% </strong>`;
+  wind.innerHTML = ` wind: <strong id="wind-info"> ${windApi}km/h </strong>`;
   tempNow.innerHTML = `${currentTemp} <div class="current-temp-metric"></div>`;
   icon.innerHTML = `  <img class="current-temp-icon" src="${iconApi}">`;
   forecastApi(response.city);
