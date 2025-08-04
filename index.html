@@ -10,119 +10,127 @@
     </style>
   </head>
   <body>
-    <div class="wrapper">
-      <div class="container">
-        <div class="glass-bg"></div>
-        <div class="container-content">
-          <div class="search-bar">
-            <form class="form-handler" id="form" action="">
-              <div class="form-input">
-                <input
-                  id="user-city-input"
-                  type="text"
-                  placeholder="Search for a city"
-                  required
-                  autocomplete="on"
-                />
-              </div>
-              <div class="form-submit-btn">
-                <input type="submit" value="Search" />
-              </div>
-            </form>
-          </div>
-          <div class="toggle">
-            <h3 class="active-btn" id="today-btn">Today</h3>
+    <div class="env">
+      <div class="display-btns">
+        <div class="bg-changer">
+          <button class="change-bg" id="gradient-bg">change gradient</button>
+          <button class="icon" id="light-dark">icon</button>
+        </div>
+      </div>
+      <div class="wrapper" id="wrap">
+        <div class="container">
+          <div class="glass-bg default-gradient"></div>
+          <div class="container-content">
+            <div class="search-bar">
+              <form class="form-handler" id="form" action="">
+                <div class="form-input">
+                  <input
+                    id="user-city-input"
+                    type="text"
+                    placeholder="Search for a city"
+                    required
+                    autocomplete="on"
+                  />
+                </div>
+                <div class="form-submit-btn">
+                  <input type="submit" value="Search" />
+                </div>
+              </form>
+            </div>
+            <div class="toggle">
+              <h3 class="active-btn" id="today-btn">Today</h3>
 
-            <h3 class="nonactive-btn" id="week-btn">This week</h3>
-          </div>
-          <div class="current-city-info" id="content-displayed">
-            <div class="city-name-with-description">
-              <h1>City Name</h1>
-              <p>
-                <span id="date">Thu, 10:11,</span>
-                <span class="bullet-divider">•</span>
-                <span id="weather-info">clear sky</span>
-              </p>
-              <p>
-                <span>Humidity:</span> <strong id="humdity-info"></strong>
-                <span class="bullet-divider">•</span>
-                <span>Wind: </span><strong id="wind-info"> 0</strong>
-              </p>
+              <h3 class="nonactive-btn" id="week-btn">This week</h3>
             </div>
-            <div class="current-temp">
-              <div class="current-temp-icon" id="current-temp-icon"></div>
-              <div class="current-temp-digit" id="current-temp-digit"></div>
-              <div class="current-temp-metric">°C</div>
-            </div>
-          </div>
-          <div
-            class="forecast-section"
-            id="forecast-section"
-            style="display: none"
-          >
-            <div class="forecast-first">
-              <div class="forecast-day">Sat</div>
-              <div class="forecast-icon">
-                <img class="icon" src="" alt="Shecodes icon" />
+            <div class="current-city-info" id="content-displayed">
+              <div class="city-name-with-description">
+                <h1>City Name</h1>
+                <p>
+                  <span id="date">Thu, 10:11,</span>
+                  <span class="bullet-divider">•</span>
+                  <span id="weather-info">clear sky</span>
+                </p>
+                <p>
+                  <span>Humidity:</span> <strong id="humdity-info"></strong>
+                  <span class="bullet-divider">•</span>
+                  <span>Wind: </span><strong id="wind-info"> 0</strong>
+                </p>
               </div>
-              <div class="description">clear sky</div>
-              <div class="forecast-min-max">
-                <strong class="forecast-max">22°</strong>
-                <span class="forecast-min">23°</span>
+              <div class="current-temp">
+                <div class="current-temp-icon" id="current-temp-icon"></div>
+                <div class="current-temp-digit" id="current-temp-digit"></div>
+                <div class="current-temp-metric">°C</div>
               </div>
             </div>
-            <div class="forecast-first">
-              <div class="forecast-day">Sat</div>
-              <div class="forecast-icon">
-                <img class="icon" src="" alt="Shecodes icon" />
+            <div
+              class="forecast-section"
+              id="forecast-section"
+              style="display: none"
+            >
+              <div class="forecast-first">
+                <div class="forecast-day">Sat</div>
+                <div class="forecast-icon">
+                  <img class="icon" src="" alt="Shecodes icon" />
+                </div>
+                <div class="description">clear sky</div>
+                <div class="forecast-min-max">
+                  <strong class="forecast-max"></strong>
+                  <span class="forecast-min"></span>
+                </div>
               </div>
-              <div class="description">clear sky</div>
-              <div class="forecast-min-max">
-                <strong class="forecast-max">22°</strong>
-                <span class="forecast-min">23°</span>
+              <div class="forecast-first">
+                <div class="forecast-day">Sat</div>
+                <div class="forecast-icon">
+                  <img class="icon" src="" alt="Shecodes icon" />
+                </div>
+                <div class="description">clear sky</div>
+                <div class="forecast-min-max">
+                  <strong class="forecast-max"></strong>
+                  <span class="forecast-min"></span>
+                </div>
               </div>
-            </div>
-            <div class="forecast-first">
-              <div class="forecast-day">Sat</div>
-              <div class="forecast-icon">
-                <img class="icon" src="" alt="Shecodes icon" />
+              <div class="forecast-first">
+                <div class="forecast-day">Sat</div>
+                <div class="forecast-icon">
+                  <img class="icon" src="" alt="Shecodes icon" />
+                </div>
+                <div class="description">clear sky</div>
+                <div class="forecast-min-max">
+                  <strong class="forecast-max"></strong>
+                  <span class="forecast-min"></span>
+                </div>
               </div>
-              <div class="description">clear sky</div>
-              <div class="forecast-min-max">
-                <strong class="forecast-max">22°</strong>
-                <span class="forecast-min">23°</span>
+              <div class="forecast-first">
+                <div class="forecast-day">Sat</div>
+                <div class="forecast-icon">
+                  <img class="icon" src="" alt="Shecodes icon" />
+                </div>
+                <div class="description">clear sky</div>
+                <div class="forecast-min-max">
+                  <strong class="forecast-max"></strong>
+                  <span class="forecast-min"></span>
+                </div>
               </div>
-            </div>
-            <div class="forecast-first">
-              <div class="forecast-day">Sat</div>
-              <div class="forecast-icon">
-                <img class="icon" src="" alt="Shecodes icon" />
-              </div>
-              <div class="description">clear sky</div>
-              <div class="forecast-min-max">
-                <strong class="forecast-max">22°</strong>
-                <span class="forecast-min">23°</span>
-              </div>
-            </div>
-            <div class="forecast-first">
-              <div class="forecast-day">Sat</div>
-              <div class="forecast-icon">
-                <img class="icon" src="" alt="Shecodes icon" />
-              </div>
-              <div class="description">clear sky</div>
-              <div class="forecast-min-max">
-                <strong class="forecast-max">22°</strong>
-                <span class="forecast-min">23°</span>
+              <div class="forecast-first">
+                <div class="forecast-day">Sat</div>
+                <div class="forecast-icon">
+                  <img class="icon" src="" alt="Shecodes icon" />
+                </div>
+                <div class="description">clear sky</div>
+                <div class="forecast-min-max">
+                  <strong class="forecast-max"></strong>
+                  <span class="forecast-min"></span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <footer>
+        Coded by <a href="">Hajar Bellarbia,</a> open-sourced on
+        <a href="">GitHub</a> & hosted on <a href="">Netlify</a>
+      </footer>
     </div>
-    <footer>
-      Coded by <a href="">Hajar Bellarbia,</a> open-sourced on
-      <a href="">GitHub</a> & hosted on <a href="">Netlify</a>
-    </footer>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
     <script src="src/app.js"></script>
     <script src="src/config.js"></script>

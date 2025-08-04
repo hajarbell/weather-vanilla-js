@@ -1,3 +1,28 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const darkbg = document.getElementById("light-dark");
+  console.log(darkbg);
+  darkbg.addEventListener("click", () => {
+    let bg = document.querySelector(".env");
+    console.log(bg);
+    bg.classList.toggle("dark-mode");
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const gradientBG = document.getElementById("gradient-bg");
+  console.log(gradientBG);
+  gradientBG.addEventListener("click", () => {
+    let gradient = document.querySelector(".glass-bg");
+    console.log(gradient);
+    if (gradient.classList.contains("default-gradient")) {
+      gradient.classList.remove("default-gradient");
+      gradient.classList.add("gradient-1");
+    } else {
+      gradient.classList.remove("gradient-1");
+      gradient.classList.add("default-gradient");
+    }
+  });
+});
+
 const todayBtn = document.getElementById("today-btn");
 todayBtn.addEventListener("click", (event) => {
   event.preventDefault();
@@ -13,8 +38,10 @@ function updateForecast(data) {
   let forecastBlock = document.querySelectorAll(".forecast-first");
   let block = Array.from(forecastBlock);
   console.log(block);
+  console.log(weekBtn);
   content.style.display = "none";
   forecastSection.style.display = "flex";
+
   let forecastDaily = data.daily;
   console.log(data.daily);
   block.forEach((element, i) => {
@@ -28,12 +55,11 @@ function updateForecast(data) {
     element.querySelector(".icon").src = forecast.condition.icon_url;
     element.querySelector(".description").innerHTML =
       forecast.condition.description;
-    element.querySelector(".forecast-max").innerHTML = Math.round(
-      forecast.temperature.maximum
-    );
-    element.querySelector(".forecast-min").innerHTML = Math.round(
-      forecast.temperature.minimum
-    );
+    let max = Math.round(forecast.temperature.maximum);
+    let min = Math.round(forecast.temperature.minimum);
+    element.querySelector(".forecast-max").innerHTML = `${max}°`;
+
+    element.querySelector(".forecast-min").innerHTML = `${min}°`;
   });
 }
 
@@ -48,6 +74,7 @@ function forecastApi(city) {
       let forecastResponse = response.json().then((data) => {
         weekBtn.addEventListener("click", (e) => {
           e.preventDefault();
+
           updateForecast(data);
           console.log("here's the:" + data);
         });
