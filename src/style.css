@@ -12,27 +12,26 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-style: normal;
-  outline: 2px solid black;
 }
 .env footer {
   position: absolute;
-  bottom: 115px;
-  text-align: center;
-  width: 100%;
+  bottom: 109px;
+
   left: 50%;
   transform: translateX(-50%);
 
   font-size: 12px;
-
   line-height: 40px;
+  width: max-content;
 }
 .env {
   overflow-y: hidden;
+  background-color: #fff;
+
   transition: all 1s;
   height: 100%;
   width: 100%;
   position: relative;
-  background-color: #fff;
   outline: 2px solid darkred;
 }
 
@@ -98,6 +97,15 @@ body {
   );
   filter: blur(60px);
 }
+.gradient-3 {
+  background-image: radial-gradient(
+      circle at 50% 70%,
+      #db8cdb 0%,
+      rgb(22, 7, 26)
+    ),
+    radial-gradient(circle at 50% 50%, rgb(170, 90, 94) 0%, rgb(22, 7, 26) 100%);
+  filter: blur(10px);
+}
 .container-content {
   position: absolute;
   inset: 0;
@@ -149,7 +157,7 @@ body {
 
   background-color: rgb(234, 232, 237, 0.3);
   width: 15rem;
-  margin-left: 12rem;
+  margin-left: 13rem;
   padding: 5px;
 
   border-radius: 16px;
@@ -207,19 +215,19 @@ div.current-temp {
 div.current-temp-digit {
   font-size: 102px;
   font-weight: 800;
-  line-height: 140px;
+  line-height: 135px;
 }
 
 div.current-temp-icon {
   width: 90px;
-  margin-top: 20px;
-  margin-bottom: 15px;
+  margin-top: 13px;
+  margin-bottom: 20px;
   margin-right: 10px;
 }
 div.current-temp-metric {
   font-size: 28px;
   font-weight: 600;
-  line-height: 84px;
+  line-height: 74px;
   margin-top: 0px;
 }
 .city-name-with-description > h1 {
@@ -293,7 +301,7 @@ button {
 }
 
 button.change-bg {
-  font-weight: 400;
+  font-weight: 460;
   padding: 15px 20px;
 
   color: rgb(198, 21, 150, 0.8);
@@ -302,7 +310,7 @@ button.change-bg {
 button.clicked {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px inset;
   background-color: (255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+
   transition: all 0.3s ease;
 }
 button.icon {
@@ -325,7 +333,7 @@ button.icon {
   opacity: 1;
   transform: translate(0, 1.5px);
   font-size: 20px;
-  color: black;
+  color: rgba(0, 0, 0, 0.919);
 }
 .material-symbols-outlined.sun-icon {
   color: rgb(198, 21, 150, 0.8);
@@ -336,8 +344,12 @@ button.icon {
 }
 .material-symbols-outlined.sun-icon,
 .material-symbols-outlined.moon-icon {
-  transition: transform 1s ease;
+  font-weight: 400;
+  transition: transform 0.8s ease;
 }
 .material-symbols-outlined.moon-icon {
   opacity: 0;
+}
+#info {
+  font-weight: 500;
 }

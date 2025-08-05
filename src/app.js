@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   const darkbg = document.getElementById("light-dark");
-  console.log(darkbg);
+
   darkbg.addEventListener("click", () => {
     let bg = document.querySelector(".env");
-    console.log(bg);
+
     bg.classList.toggle("dark-mode");
     darkbg.classList.toggle("clicked");
   });
   const gradientBG = document.getElementById("gradient-bg");
-  console.log(gradientBG);
+
   gradientBG.addEventListener("click", updateGradient);
 });
 
@@ -16,10 +16,14 @@ let currentIndex = 0;
 function updateGradient() {
   let gradient = document.querySelector(".glass-bg");
   gradient.style.opacity = "0";
-  console.log(gradient);
 
   setTimeout(() => {
-    let gradientBgs = ["default-gradient", "gradient-1", "gradient-2"];
+    let gradientBgs = [
+      "default-gradient",
+      "gradient-1",
+      "gradient-2",
+      "gradient-3",
+    ];
     gradient.classList.remove(gradientBgs[currentIndex]);
     currentIndex = (currentIndex + 1) % gradientBgs.length;
     gradient.classList.add(gradientBgs[currentIndex]);
@@ -50,21 +54,20 @@ function updateForecast(data) {
   let content = document.querySelector("#content-displayed");
   let forecastBlock = document.querySelectorAll(".forecast-first");
   let block = Array.from(forecastBlock);
-  console.log(block);
-  console.log(weekBtn);
+
   content.style.display = "none";
   forecastSection.style.display = "flex";
 
   let forecastDaily = data.daily;
-  console.log(data.daily);
+
   block.forEach((element, i) => {
     let forecast = forecastDaily[i];
-    console.log(forecast);
+
     let time = new Date(forecast.time * 1000);
     let formattedTime = moment(time).format("dddd");
-    console.log(formattedTime);
+
     element.querySelector(".forecast-day").innerHTML = formattedTime;
-    console.log(time);
+
     element.querySelector(".icon").src = forecast.condition.icon_url;
     element.querySelector(".description").innerHTML =
       forecast.condition.description;
@@ -77,11 +80,10 @@ function updateForecast(data) {
 }
 
 const weekBtn = document.querySelector("#week-btn");
-console.log(weekBtn);
 
 function forecastApi(city) {
   let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
-  console.log(forecastApiUrl);
+
   try {
     fetch(forecastApiUrl).then((response) => {
       let forecastResponse = response.json().then((data) => {
@@ -98,13 +100,11 @@ function forecastApi(city) {
           }
 
           updateForecast(data);
-          console.log("here's the:" + data);
         });
       });
     });
   } catch (error) {
-    console.log("There's something wrong with the forecast API");
-    console.log(error.message);
+    // Error handled
   }
 }
 
@@ -118,10 +118,7 @@ function updateWeather(response) {
   let windApi = response.wind.speed;
   let currentTemp = Math.round(response.temperature.current);
   let iconApi = response.condition.icon_url;
-  console.log(iconApi);
-  console.log(weatherCondition);
-  console.log(formattedDate);
-  console.log(date);
+
   let firstHeading = document.querySelector("h1");
   let dateUpdated = document.querySelector("#date");
   let weatherDetails = document.querySelector("#weather-info");
@@ -130,13 +127,12 @@ function updateWeather(response) {
   let tempNow = document.querySelector("#current-temp-digit");
   let icon = document.querySelector("#current-temp-icon");
 
-  console.log(weatherDetails);
   firstHeading.innerHTML = city;
   dateUpdated.innerHTML = `${formattedDate} `;
   weatherDetails.innerHTML = weatherCondition;
-  humidity.innerHTML = ` Humidity: <strong id="wind-info"> 
-                ${humidityApi}% </strong>`;
-  wind.innerHTML = ` wind: <strong id="wind-info"> ${windApi}km/h </strong>`;
+  humidity.innerHTML = ` Humidity: <span id="info"> 
+                ${humidityApi}% </span>`;
+  wind.innerHTML = ` wind: <span id="info"> ${windApi}km/h </span>`;
   tempNow.innerHTML = `${currentTemp} <div class="current-temp-metric"></div>`;
   icon.innerHTML = `  <img class="current-temp-icon" src="${iconApi}">`;
   forecastApi(response.city);
@@ -153,8 +149,7 @@ async function apiHandler(city) {
     let data = await response.json();
     updateWeather(data);
   } catch (error) {
-    console.log("An Error in the API has been caught");
-    console.log(error.message);
+    // Error handled
   }
 }
 
@@ -163,7 +158,6 @@ function getCity(event) {
   const userInput = document.querySelector("#user-city-input");
   const cityName = userInput.value;
   apiHandler(cityName);
-  console.log(cityName);
 }
 document.addEventListener("DOMContentLoaded", () => {
   const formElement = document.getElementById("form");
